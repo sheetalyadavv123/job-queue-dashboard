@@ -10,7 +10,7 @@ export interface Job {
   createdAt: string;
 }
 
-const api = axios.create({ baseURL: 'http://localhost:3001' });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL, });
 
 export const getJobs = () => api.get<Job[]>('/jobs').then(r => r.data);
 export const createJob = (title: string, type: string) =>
